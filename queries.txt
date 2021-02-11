@@ -1,0 +1,90 @@
+
+query 1:::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+SELECT
+    t1.first_name,
+    t1.last_name,
+    t1.email,
+    t2.amount,
+    t2.payment_date
+FROM
+    staff t1
+LEFT JOIN payment t2 ON
+    t1.staff_id = t2.staff_id
+
+Query2::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+SELECT
+    t1.first_name,
+    t1.last_name,
+    t1.email,
+    t2.amount,
+    t2.payment_date,
+    t3.rental_date,
+    t3.return_date
+FROM
+    staff t1
+LEFT JOIN payment t2 ON
+    t1.staff_id = t2.staff_id
+LEFT JOIN rental t3 ON
+    t2.rental_id = t3.rental_id
+
+Query 3::::::::::::::::::::::::::::::::::::::::::::
+
+
+
+SELECT
+    t1.title,
+    t1.description,
+    t1.rental_rate,
+    t1.rating,
+    t2.inventory_id,
+    t3.rental_date,
+    t3.return_date,
+    t4.amount,
+    t4.payment_date
+FROM
+    film t1
+LEFT JOIN inventory t2 ON
+    t1.film_id = t2.film_id
+LEFT JOIN rental t3 ON
+    t2.inventory_id = t3.inventory_id
+LEFT JOIN payment t4 ON
+    t3.rental_id = t4.rental_id
+
+Query4::::::::::::::::::::::::::::::::::::::::::::::
+
+SELECT
+    t1.title,
+    t1.description,
+    t1.rental_rate,
+    t1.rating,
+    t2.actor_id,
+    t3.first_name,
+    t3.last_name
+FROM
+    film t1
+LEFT JOIN film_actor t2 ON
+    t1.film_id = t2.film_id
+LEFT JOIN actor t3 ON
+    t2.actor_id = t3.actor_id
+query 5::::::::::::::::::::::::::::::::::::::::::::::
+
+SELECT
+    t1.title,
+    t1.description,
+    t1.rental_rate,
+    t1.rating,
+    t2.actor_id,
+    t3.first_name,
+    t3.last_name
+FROM
+    film t1
+JOIN film_actor t2 ON
+    t1.film_id = t2.film_id
+JOIN actor t3 ON
+    t2.actor_id = t3.actor_id
+
+
+
